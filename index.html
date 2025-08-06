@@ -36,7 +36,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MorphSVGPlugin.min.js"></script>
     <style>
         :root {
-            --primary-color: #091537;
+            /* --primary-color: #091537; */
+            --primary-color: #0B1538;
             --secondary-color: #d1924a;
             /* --background-color: #ffffff; */
             --background-color: #F5F5DC;
@@ -1559,7 +1560,7 @@
 
         /* Footer Section */
         .footer {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #1a2951 100%);
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0B1538 100%);
             color: white;
             position: relative;
             overflow: hidden;
@@ -2330,6 +2331,228 @@
                 height: 320px;
             }
         }
+        /* Content on scroll */
+
+        body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #fff;
+  color: #091537;
+}
+
+/* Gallery Section */
+.gallery {
+  position: relative;
+  width: 100vw;
+  min-height: 80vh;
+  background: #fff;
+  transition: background 0.5s;
+  overflow: hidden;
+  z-index: 0; /* Add this */
+}
+
+.spacer {
+  height: 100vh;
+  width: 100vw;
+  position: relative; /* Add this */
+  z-index: 2; /* Add this */
+}
+
+.desktopContentSection {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s;
+  z-index: 3; /* Increased from 2 to 3 */
+  padding: 60px 10vw;
+  box-sizing: border-box;
+}
+
+.desktopContentSection.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.reveal {
+  max-width: 500px;
+  opacity: 0;
+  background: #fff;
+  padding: 32px 24px;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(9,21,55,0.08);
+  border-left: 6px solid #d1924a;
+  position: relative; /* Add this */
+  z-index: 4; /* Add this */
+}
+
+.desktopPhoto {
+  width: 340px;
+  height: 340px;
+  background: #f5f5f5;
+  border-radius: 24px;
+  margin-left: 40px;
+  box-shadow: 0 8px 32px rgba(9,21,55,0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 4px solid #d1924a;
+  position: relative; /* Add this */
+  z-index: 4; /* Add this */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+  .desktopContentSection {
+    flex-direction: column;
+    padding: 40px 5vw;
+    justify-content: flex-start;
+  }
+  .desktopPhoto {
+    margin: 30px 0 0 0;
+    width: 90vw;
+    height: 220px;
+  }
+  .reveal {
+    max-width: 90vw;
+    margin-bottom: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .desktopContentSection {
+    padding: 20px 2vw;
+  }
+  .desktopPhoto {
+    height: 160px;
+  }
+  .reveal h1 {
+    font-size: 1.3rem;
+  }
+  .reveal {
+    padding: 18px 10px;
+  }
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.heading {
+  font-size: 2.5rem;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0.04em 0.04rem 0 #81b5ab;
+}
+
+.section {
+  overflow: hidden;
+}
+
+.wrapper {
+  height: 100vh;
+}
+
+.list {
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  display: flex;
+  position: relative;
+  padding: 0.2rem;
+}
+
+.item {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  inset: 0%;
+  box-shadow: rgb(149, 157, 165, 0.2) 0px 8px 24px;
+  overflow: hidden;
+}
+
+.item_number {
+  font-size: 1.5rem;
+  height: 3rem;
+  width: 3rem;
+  margin-bottom: 0.5rem;
+  border-radius: 50%;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  position: absolute;
+  top: 6rem;
+  left: 3rem;
+}
+
+.item_content {
+  background-color: #fff;
+  color: #292929;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem;
+  display: flex;
+  position: relative;
+  width: 50%;
+}
+
+.item_media {
+  object-fit: cover;
+  width: 50%;
+  height: 100%;
+}
+
+.padding-global {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.padding-vertical {
+  padding: 2rem;
+}
+
+@media (max-width: 575.98px) {
+  .heading {
+    font-size: 2.5rem;
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .item_content,
+  .item_media {
+    height: 50vh;
+    width: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .item_number {
+    font-size: .5rem;
+    top: 1.5rem;
+  }
+}
+
     </style>
 </head>
 
@@ -2358,7 +2581,7 @@
         <div class="header-content">
             <div class="header-left">
                 <div class="header-item">
-                    <img id="logoheader" src="logo_andpr.png" alt="AND PR AGENCY Logo" class="logo-image" />
+                    <img id="logoheader" src="and_pr_logo.png" alt="AND PR AGENCY Logo" class="logo-image" />
                 </div>
                 <!-- <div class="header-item">
                     <i class="fas fa-phone"></i>
@@ -2576,6 +2799,205 @@
             </div>
         </div>
     </section>
+
+    <main class="main-wrapper">
+      <div class="section">
+        <div class="container-medium">
+          <div class="padding-vertical">
+            <div class="max-width-large">
+              <!-- <h1 class="heading">But Vertical Scroll Is Also Cool!</h1> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-section vertical-section section">
+        <div class="wrapper">
+          <div role="list" class="list">
+            <div role="listitem" class="item">
+              <div class="item_content">
+                <h2 class="item_number">1</h2>
+                <h2>Wildlife in Action: A Glimpse into Nature’s Daily Drama</h2>
+                <p class="item_p">
+                  Witness the fascinating lives of animals in their natural
+                  habitats, from playful cubs to stealthy predators.
+                </p>
+              </div>
+              <video
+                src="https://videos.pexels.com/video-files/4763824/4763824-uhd_2560_1440_24fps.mp4"
+                loading="lazy"
+                autoplay
+                muted
+                loop
+                class="item_media"
+              ></video>
+            </div>
+            <div role="listitem" class="item">
+              <div class="item_content">
+                <h2 class="item_number">2</h2>
+                <h2>The Changing Seasons: Nature’s Everlasting Cycle</h2>
+                <p class="item_p">
+                  Experience the beauty of nature's transitions, from blooming
+                  spring flowers to snowy winter landscapes.
+                </p>
+              </div>
+              <video
+                src="https://videos.pexels.com/video-files/3214448/3214448-uhd_2560_1440_25fps.mp4"
+                loading="lazy"
+                autoplay
+                muted
+                loop
+                class="item_media"
+              ></video>
+            </div>
+            <div role="listitem" class="item">
+              <div class="item_content">
+                <h2 class="item_number">3</h2>
+                <h2>Guardians of Nature: Protecting Our Planet’s Future</h2>
+                <p class="item_p">
+                  Learn about the importance of conservation and how we can work
+                  together to preserve the beauty of nature for generations to
+                  come.
+                </p>
+              </div>
+              <video
+                src="https://videos.pexels.com/video-files/4328514/4328514-uhd_2560_1440_30fps.mp4"
+                loading="lazy"
+                autoplay
+                muted
+                loop
+                class="item_media"
+              ></video>
+            </div>
+            <div role="listitem" class="item">
+              <div class="item_content">
+                <h2 class="item_number">4</h2>
+                <h2>Astral Aesthetics: Portraits from the Infinite</h2>
+                <p class="item_p">
+                  Experience the boundless beauty of the cosmos through striking
+                  portraits that capture its infinite aesthetic appeal.
+                </p>
+              </div>
+              <video
+                src="https://videos.pexels.com/video-files/2871916/2871916-hd_1920_1080_30fps.mp4"
+                loading="lazy"
+                autoplay
+                muted
+                loop
+                class="item_media"
+              ></video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="container-medium">
+          <div class="padding-vertical">
+            <div class="max-width-large">
+              <!-- <h1 class="heading">Horizontal Scroll Is Cool!</h1> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-section horizontal-section section">
+        <div class="wrapper">
+          <div role="list" class="list">
+            <div role="listitem" class="item">
+              <div class="item_content">
+                <h2 class="item_number">1</h2>
+                <h2>Wildlife in Action: A Glimpse into Nature’s Daily Drama</h2>
+                <p class="item_p">
+                  Explore the untouched beauty of forests, mountains, and rivers
+                  as we uncover the hidden secrets of nature's most breathtaking
+                  landscapes.
+                </p>
+              </div>
+              <video
+                src="https://videos.pexels.com/video-files/10178127/10178127-uhd_2560_1440_30fps.mp4"
+                loading="lazy"
+                autoplay
+                muted
+                loop
+                class="item_media"
+              ></video>
+            </div>
+            <div role="listitem" class="item">
+              <div class="item_content">
+                <h2 class="item_number">2</h2>
+                <h2>Nature’s Symphony: The Sounds That Heal the Soul</h2>
+                <p class="item_p">
+                  Immerse yourself in the soothing sounds of chirping birds,
+                  rustling leaves, and flowing streams – nature's music for
+                  peace and tranquility.
+                </p>
+              </div>
+              <video
+                src="https://videos.pexels.com/video-files/15708463/15708463-uhd_2560_1440_24fps.mp4"
+                loading="lazy"
+                autoplay
+                muted
+                loop
+                class="item_media"
+              ></video>
+            </div>
+            <div role="listitem" class="item">
+              <div class="item_content">
+                <h2 class="item_number">3</h2>
+                <h2>
+                  Nature’s Masterpieces: Landscapes That Take Your Breath Away
+                </h2>
+                <p class="item_p">
+                  Discover stunning views of majestic mountains, endless oceans,
+                  and golden sunsets that remind us of nature's artistic
+                  brilliance.
+                </p>
+              </div>
+              <video
+                src="https://videos.pexels.com/video-files/15708462/15708462-uhd_2560_1440_24fps.mp4"
+                loading="lazy"
+                autoplay
+                muted
+                loop
+                class="item_media"
+              ></video>
+            </div>
+            <div role="listitem" class="item">
+              <div class="item_content">
+                <h2 class="item_number">4</h2>
+                <h2>The Power of Nature: How It Shapes Our World</h2>
+                <p class="item_p">
+                  Dive into the incredible forces of nature – from roaring
+                  waterfalls to mighty hurricanes – and see how they sculpt the
+                  earth we live on.
+                </p>
+              </div>
+              <video
+                src="https://videos.pexels.com/video-files/5788966/5788966-hd_1920_1080_25fps.mp4"
+                loading="lazy"
+                autoplay
+                muted
+                loop
+                class="item_media"
+              ></video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="padding-global">
+          <div class="container-medium">
+            <div class="padding-vertical">
+              <div class="max-width-large">
+                <!-- <h1 class="heading">Soo Cool!!</h1> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
     <!-- Portfolio/Case Studies Section -->
     <section class="portfolio-section">
@@ -2819,7 +3241,69 @@
         </div>
     </section>
 
-
+    <!-- <div class="gallery">
+  <div class="spacer"></div>
+  <section class="desktopContentSection">
+    <div class="reveal">
+      <h1>IT Consulting</h1>
+      <p>Unlock your business potential with expert IT consulting. We help you strategize, plan, and implement technology solutions that drive growth and efficiency.</p>
+      <ul>
+        <li>Technology Strategy & Planning</li>
+        <li>Cloud Migration & Solutions</li>
+        <li>Digital Transformation</li>
+      </ul>
+    </div>
+    <div class="desktopPhoto photo1">
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="IT Consulting" />
+    </div>
+  </section>
+  <div class="spacer"></div>
+  <section class="desktopContentSection">
+    <div class="reveal">
+      <h1>Software Development</h1>
+      <p>Custom software solutions tailored to your business needs. From web applications to mobile platforms, we deliver robust and scalable products.</p>
+      <ul>
+        <li>Web & Mobile App Development</li>
+        <li>API Integration</li>
+        <li>UI/UX Design</li>
+      </ul>
+    </div>
+    <div class="desktopPhoto photo2">
+      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Software Development" />
+    </div>
+  </section>
+  <div class="spacer"></div>
+  <section class="desktopContentSection">
+    <div class="reveal">
+      <h1>Cybersecurity</h1>
+      <p>Protect your business with advanced cybersecurity solutions. We offer proactive monitoring and defense against digital threats.</p>
+      <ul>
+        <li>Network Security</li>
+        <li>Risk Assessment</li>
+        <li>Data Protection & Compliance</li>
+      </ul>
+    </div>
+    <div class="desktopPhoto photo3">
+      <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=400&q=80" alt="Cybersecurity" />
+    </div>
+  </section>
+  <div class="spacer"></div>
+  <section class="desktopContentSection">
+    <div class="reveal">
+      <h1>IT Support</h1>
+      <p>Reliable support and maintenance to keep your systems running smoothly. Our team is available 24/7 to resolve issues and ensure uptime.</p>
+      <ul>
+        <li>24/7 Helpdesk</li>
+        <li>Remote & Onsite Assistance</li>
+        <li>System Maintenance</li>
+      </ul>
+    </div>
+    <div class="desktopPhoto photo4">
+      <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="IT Support" />
+    </div>
+  </section>
+  <div class="spacer"></div>
+</div> -->
 
     <!-- Client Testimonials Section -->
     <!-- <div class="testimonials-container">
@@ -3150,7 +3634,282 @@
         </a>
     </div>
 
+    
+
     <script>
+        // Make ScrollTrigger available for use in GSAP animations
+gsap.registerPlugin(ScrollTrigger);
+
+// Select the HTML elements needed for the animation
+const scrollSection = document.querySelectorAll(".scroll-section");
+
+scrollSection.forEach((section) => {
+  const wrapper = section.querySelector(".wrapper");
+  const items = wrapper.querySelectorAll(".item");
+
+  // Initialize
+  let direction = null;
+
+  if (section.classList.contains("vertical-section")) {
+    direction = "vertical";
+  } else if (section.classList.contains("horizontal-section")) {
+    direction = "horizontal";
+  }
+
+  initScroll(section, items, direction);
+});
+
+function initScroll(section, items, direction) {
+  // Initial states
+  items.forEach((item, index) => {
+    if (index !== 0) {
+      direction == "horizontal"
+        ? gsap.set(item, { xPercent: 100 })
+        : gsap.set(item, { yPercent: 100 });
+    }
+  });
+
+  const timeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: section,
+      pin: true,
+      start: "top top",
+      end: () => `+=${items.length * 100}%`,
+      scrub: 1,
+      invalidateOnRefresh: true,
+      // markers: true,
+    },
+    defaults: { ease: "none" },
+  });
+  items.forEach((item, index) => {
+    timeline.to(item, {
+      scale: 0.9,
+      borderRadius: "10px",
+    });
+
+    direction == "horizontal"
+      ? timeline.to(
+          items[index + 1],
+          {
+            xPercent: 0,
+          },
+          "<"
+        )
+      : timeline.to(
+          items[index + 1],
+          {
+            yPercent: 0,
+          },
+          "<"
+        );
+  });
+}
+
+
+
+        let mediaAnimation = gsap.matchMedia();
+
+ScrollTrigger.defaults({
+  markers: false
+});
+
+// White backgrounds for all sections
+const colors = ["#fff", "#fff", "#fff", "#fff", "#fff"];
+
+mediaAnimation.add("(min-width: 666px)", () => {
+  const sections = gsap.utils.toArray(".desktopContentSection");
+  const spacers = gsap.utils.toArray(".spacer");
+  
+  // Set initial z-index for sections
+  sections.forEach((section, index) => {
+    section.style.zIndex = sections.length - index;
+  });
+
+  spacers.forEach((spacer, i) => {
+    ScrollTrigger.create({
+      trigger: spacer,
+      start: "top center",
+      end: "bottom center",
+      onEnter: () => {
+        // Bring current section to front
+        sections.forEach(s => s.style.zIndex = 0);
+        if (sections[i]) sections[i].style.zIndex = sections.length;
+        
+        sections.forEach((s, idx) => {
+          s.classList.remove("active");
+          gsap.to(s.querySelector('.reveal'), { 
+            opacity: 0, 
+            y: 40, 
+            duration: 0.5, 
+            overwrite: true 
+          });
+          if (s.querySelector('.desktopPhoto img')) {
+            gsap.to(s.querySelector('.desktopPhoto img'), { 
+              scale: 0.95, 
+              rotate: -3, 
+              duration: 0.5, 
+              overwrite: true 
+            });
+          }
+        });
+
+        if (sections[i]) {
+          sections[i].classList.add("active");
+          gsap.to(".gallery", { backgroundColor: colors[i] });
+
+          // Animate content
+          gsap.fromTo(
+            sections[i].querySelector('.reveal'),
+            { opacity: 0, y: 40 },
+            { 
+              opacity: 1, 
+              y: 0, 
+              duration: 0.7, 
+              ease: "power2.out", 
+              overwrite: true 
+            }
+          );
+
+          // Animate image
+          if (sections[i].querySelector('.desktopPhoto img')) {
+            gsap.fromTo(
+              sections[i].querySelector('.desktopPhoto img'),
+              { scale: 0.95, rotate: -3 },  //0.95
+              { 
+                scale: 1, 
+                rotate: 0, 
+                duration: 0.7, 
+                ease: "power2.out", 
+                overwrite: true 
+              }
+            );
+          }
+
+          // Stagger list items
+          const listItems = sections[i].querySelectorAll('.reveal ul li');
+          gsap.fromTo(
+            listItems,
+            { opacity: 0, x: -30 },
+            { 
+              opacity: 1, 
+              x: 0, 
+              duration: 0.5, 
+              stagger: 0.12, 
+              delay: 0.2, 
+              ease: "power2.out", 
+              overwrite: true 
+            }
+          );
+        }
+      },
+      onEnterBack: () => {
+        // Same as onEnter to ensure consistency
+        sections.forEach(s => s.style.zIndex = 0);
+        if (sections[i]) sections[i].style.zIndex = sections.length;
+        
+        sections.forEach((s, idx) => {
+          s.classList.remove("active");
+          gsap.to(s.querySelector('.reveal'), { 
+            opacity: 0, 
+            y: 40, 
+            duration: 0.5, 
+            overwrite: true 
+          });
+          if (s.querySelector('.desktopPhoto img')) {
+            gsap.to(s.querySelector('.desktopPhoto img'), { 
+              scale: 0.95, 
+              rotate: -3, 
+              duration: 0.5, 
+              overwrite: true 
+            });
+          }
+        });
+
+        if (sections[i]) {
+          sections[i].classList.add("active");
+          gsap.to(".gallery", { backgroundColor: colors[i] });
+
+          gsap.fromTo(
+            sections[i].querySelector('.reveal'),
+            { opacity: 0, y: 40 },
+            { 
+              opacity: 1, 
+              y: 0, 
+              duration: 0.7, 
+              ease: "power2.out", 
+              overwrite: true 
+            }
+          );
+
+          if (sections[i].querySelector('.desktopPhoto img')) {
+            gsap.fromTo(
+              sections[i].querySelector('.desktopPhoto img'),
+              { scale: 0.95, rotate: -3 },
+              { 
+                scale: 1, 
+                rotate: 0, 
+                duration: 0.7, 
+                ease: "power2.out", 
+                overwrite: true 
+              }
+            );
+          }
+
+          const listItems = sections[i].querySelectorAll('.reveal ul li');
+          gsap.fromTo(
+            listItems,
+            { opacity: 0, x: -30 },
+            { 
+              opacity: 1, 
+              x: 0, 
+              duration: 0.5, 
+              stagger: 0.12, 
+              delay: 0.2, 
+              ease: "power2.out", 
+              overwrite: true 
+            }
+          );
+        }
+      }
+    });
+  });
+  if (sections[0]) sections[0].classList.add("active");
+});
+
+// Mobile version (keep existing but add z-index management)
+mediaAnimation.add("(max-width: 665px)", () => {
+  const sections = gsap.utils.toArray(".desktopContentSection");
+  const spacers = gsap.utils.toArray(".spacer");
+  
+  // Set initial z-index for mobile
+  sections.forEach((section, index) => {
+    section.style.zIndex = sections.length - index;
+  });
+
+  spacers.forEach((spacer, i) => {
+    ScrollTrigger.create({
+      trigger: spacer,
+      start: "top center",
+      end: "bottom center",
+      onEnter: () => {
+        // Bring current section to front
+        sections.forEach(s => s.style.zIndex = 0);
+        if (sections[i]) sections[i].style.zIndex = sections.length;
+        
+        // Rest of your existing mobile code...
+      },
+      onEnterBack: () => {
+        // Bring current section to front
+        sections.forEach(s => s.style.zIndex = 0);
+        if (sections[i]) sections[i].style.zIndex = sections.length;
+        
+        // Rest of your existing mobile code...
+      }
+    });
+  });
+  if (sections[0]) sections[0].classList.add("active");
+});
+
 
         const testimonialData = [
             {
@@ -3670,7 +4429,7 @@
             showTestimonial(index);
 
 
-            // gsap.fromTo('.testimonial-content', {
+            /* // gsap.fromTo('.testimonial-content', {
             //     scale: 0.8,
             //     opacity: 0,
             //     rotationY: 45
@@ -3684,7 +4443,7 @@
             //         trigger: '.testimonials-section',
             //         start: 'top 70%'
             //     }
-            // });
+            // }); */
 
             // Client logos animation
             gsap.fromTo('.logo-item', {
@@ -3723,8 +4482,8 @@
             });
         }
 
-        // Enhanced Service Cards
-        // function initEnhancedServiceCards() {
+        /* // Enhanced Service Cards */
+        /* // function initEnhancedServiceCards() {
         //     const serviceCards = document.querySelectorAll('.service-card');
 
         //     serviceCards.forEach(card => {
@@ -3765,7 +4524,7 @@
         //             });
         //         });
         //     });
-        // }
+        // } */
 
         // Portfolio Filter with GSAP
         function initEnhancedPortfolioFilters() {
@@ -4116,5 +4875,3 @@
 </body>
 
 </html>
-
-
