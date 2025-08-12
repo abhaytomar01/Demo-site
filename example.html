@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>AND PR AGENCY — About Us</title>
+    <style>
+        :root {
+            --accent: #0f4c81;
+            --muted: #6b7280;
+            --bg: #f7f9fb;
+            --card: #ffffff;
+            --radius: 12px;
+            font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: #0b1220;
+            line-height: 1.45
+        }
+
+        .about-wrap {
+            max-width: 1200px;
+            margin: 48px auto;
+            padding: 24px
+        }
+
+        /* Hero */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 28px;
+            align-items: center
+        }
+
+        .eyebrow {
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.06em
+        }
+
+        h1 {
+            margin: 8px 0 12px;
+            font-size: clamp(24px, 3.6vw, 36px)
+        }
+
+        p.lead {
+            color: var(--muted);
+            margin: 0 0 18px
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: 0 6px 20px rgba(15, 76, 129, 0.06);
+            padding: 18px
+        }
+
+        .hero-img {
+            height: 100%;
+            min-height: 220px;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #e6f0fb, #fff);
+        }
+
+        .hero-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block
+        }
+
+        /* services grid */
+        .services {
+            margin-top: 22px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px
+        }
+
+        .service {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start
+        }
+
+        .service .ico {
+            flex: 0 0 46px;
+            height: 46px;
+            border-radius: 10px;
+            background: linear-gradient(180deg, #eef6ff, #ffffff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--accent)
+        }
+
+        .service h4 {
+            margin: 0;
+            font-size: 15px
+        }
+
+        .service p {
+            margin: 4px 0 0;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        /* stats + CTA row */
+        .row {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px
+        }
+
+        .stats {
+            display: flex;
+            gap: 12px;
+            flex: 1
+        }
+
+        .stat {
+            flex: 1;
+            background: linear-gradient(180deg, #fff, #fbfdff);
+            padding: 14px;
+            border-radius: 10px;
+            text-align: center
+        }
+
+        .stat b {
+            display: block;
+            font-size: 20px
+        }
+
+        .cta {
+            flex: 0 0 260px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 10px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start
+        }
+
+        .cta p {
+            margin: 0 0 10px
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 14px;
+            border-radius: 8px;
+            background: #fff;
+            color: var(--accent);
+            font-weight: 600;
+            text-decoration: none
+        }
+
+        /* mobile adjustments */
+        @media (max-width:980px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-img {
+                min-height: 180px
+            }
+
+            .services {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .row {
+                flex-direction: column
+            }
+
+            .cta {
+                width: 100%
+            }
+        }
+
+        @media (max-width:520px) {
+            .services {
+                grid-template-columns: 1fr
+            }
+
+            .eyebrow {
+                font-size: 13px
+            }
+
+            h1 {
+                font-size: 20px
+            }
+
+            .stat b {
+                font-size: 18px
+            }
+        }
+
+        /* small utility */
+        ul.badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 0;
+            margin: 12px 0 0;
+            list-style: none
+        }
+
+        ul.badge-list li {
+            background: #fff;
+            padding: 8px 10px;
+            border-radius: 999px;
+            box-shadow: 0 4px 12px rgba(11, 18, 32, 0.04);
+            font-size: 13px
+        }
+    </style>
+</head>
+
+<body>
+    <section class="about-wrap" aria-labelledby="about-title">
+        <div class="hero">
+            <!-- Left / Content -->
+            <div>
+                <div class="card">
+                    <div class="eyebrow">About</div>
+                    <h1 id="about-title">AND PR AGENCY — Where your story meets the crowd</h1>
+                    <p class="lead">We build narratives and channels that turn awareness into trust. AND PR AGENCY
+                        specialises in PR, social media strategy, branding, website management, podcast production and
+                        marketplace onboarding — all designed to scale meaningful engagement for brands and creators.
+                    </p>
+
+                    <ul class="badge-list" aria-hidden="false">
+                        <li>PR</li>
+                        <li>Social Media</li>
+                        <li>Branding</li>
+                        <li>Website Management</li>
+                        <li>Podcast Shoot</li>
+                        <li>Marketplace Onboarding</li>
+                    </ul>
+
+                    <div class="services" aria-label="Our services">
+                        <div class="service">
+                            <div class="ico">PR</div>
+                            <div>
+                                <h4>Public Relations</h4>
+                                <p>Media outreach, press releases and reputation management to keep your message on
+                                    point.</p>
+                            </div>
+                        </div>
+
+                        <div class="service">
+                            <div class="ico">SM</div>
+                            <div>
+                                <h4>Social Media</h4>
+                                <p>Strategy, content calendars and community management to grow and retain audiences.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="service">
+                            <div class="ico">BD</div>
+                            <div>
+                                <h4>Branding</h4>
+                                <p>Visual identity and messaging that aligns your product with its perfect customers.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="service">
+                            <div class="ico">WEB</div>
+                            <div>
+                                <h4>Website Management</h4>
+                                <p>Design, CMS updates, SEO basics and performance tuning for a converting site.</p>
+                            </div>
+                        </div>
+
+                        <div class="service">
+                            <div class="ico">POD</div>
+                            <div>
+                                <h4>Podcast Shoot</h4>
+                                <p>Recording, editing and distribution support — from studio setup to final episode.</p>
+                            </div>
+                        </div>
+
+                        <div class="service">
+                            <div class="ico">MP</div>
+                            <div>
+                                <h4>Marketplace Onboarding</h4>
+                                <p>Product listing, optimization and storefront setup on top marketplaces.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="stats">
+                            <div class="stat">
+                                <b>8+</b>
+                                <div style="color:var(--muted);font-size:13px">Years combined experience</div>
+                            </div>
+                            <div class="stat">
+                                <b>120+</b>
+                                <div style="color:var(--muted);font-size:13px">Campaigns delivered</div>
+                            </div>
+                            <div class="stat">
+                                <b>30+</b>
+                                <div style="color:var(--muted);font-size:13px">Marketplaces supported</div>
+                            </div>
+                        </div>
+
+                        <div class="cta" role="region" aria-label="Contact call to action">
+                            <p style="margin:0 0 8px;font-weight:600">Ready to amplify your story?</p>
+                            <a class="btn" href="#contact">Get in touch</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right / Visual -->
+            <div class="hero-img card" aria-hidden="true">
+                <!-- Replace the src with your agency photo or illustration -->
+                <img src="eigth.png" alt="Team brainstorming and content creation" />
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
